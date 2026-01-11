@@ -13,7 +13,7 @@ Parse the arguments: first word is the action (`add` or `rem`), second word is t
 1. Run: `git worktree add ../<name> -b ai/<name>`
 2. If any error occurs, stop and report the error to the user as-is
 3. Open a new terminal in `../<name>` and run `claude` there:
-   - Run: `xterm -e "cd $(realpath ../<name>) && claude" &`
+   - Run: `i3-sensible-terminal -e "cd $(realpath ../<name>) && claude --dangerously-skip-permissions" &`
 
 ## For `rem <name>`:
 
