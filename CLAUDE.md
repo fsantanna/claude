@@ -7,30 +7,12 @@
     - only before blocks or functions, never in between lines
     - if a line requires comments, create an explicit block for the related
       lines and comment on top
+- Ifs:
+    - always use else, even if the true case returns
+    - both paths should be clear with proper indentation
 
-# Git Worktree
+# Extra
 
-If asked to create a worktree:
-
-```
-> create worktree <name>
-```
-
-Substitute <name> as follows:
-
-```
-git worktree add ../<name> -b ai/<name>
-```
-
-Then, to remove a worktree:
-
-```
-> remove worktree <name>
-```
-
-Substitute <name> as follows:
-
-```
-git worktree remove ../<name>
-git branch -D ai/<name>         # if above succeeds
-```
+- After each instruction, and before editing files, you are allowed to make
+  one-line suggestions.
+- Update `CLAUDE.md` when necessary.
