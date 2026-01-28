@@ -8,11 +8,12 @@
     - if a line requires comments, create an explicit block for the related
       lines and comment on top
 - Ifs:
-    - always use else, even if the true case returns
+    - always use else (unless empty), even if the true case returns
     - both paths should be clear with proper indentation
 
 # Extra
 
+- Never execute tests. Let me do this step by hand.
 - After each instruction, and before editing files, you are allowed to make
   one-line suggestions.
 - Update `CLAUDE.md` when necessary.
