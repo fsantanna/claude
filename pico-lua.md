@@ -11,4 +11,4 @@ applications based on SDL.
 
 - Color values:
     - use r,g,b fields
-    - `@{ r=0xCC, g=0x11, b=77 }`
+    - `@{ r=0xCC, g=0x11, b=0x77 }`

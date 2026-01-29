@@ -19,7 +19,9 @@ reconciles three paradigms:
 
 # Idioms and Caveats:
 
-- No precendence for binary operators:
+- Single-line comments:
+    - `;;`, not `--`
+- No precedence for binary operators:
     - use parenthesis to disambiguate
     - `1 + 2*3` becomes `1 + (2*3)`
 - Statements as expressions:
