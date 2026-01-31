@@ -11,16 +11,20 @@ Parse the arguments: first word is the action (`add` or `rem`), second word is t
 ## For `add <name>`:
 
 1. Run: `git worktree add ../<name> -b ai/<name>`
-2. If any error occurs, stop and report the error to the user as-is
-3. Open a new terminal in `../<name>` and run `claude` there:
+    - if any error occurs, stop and report the error to the user as-is
+2. Open a new terminal in `../<name>` and run `claude` there:
    - Run: `i3-sensible-terminal -e "cd $(realpath ../<name>) && claude --dangerously-skip-permissions" &`
 
 ## For `rem <name>`:
 
+1. Run: `git log --oneline --merges main | head -1 | grep ai/<name>
+    - check `$?` result
+        - if `0`, ok
+        - otherwise, stop and report error to the user
 1. Run: `git worktree remove ../<name>`
-2. If error, stop and report the error to the user as-is
-3. Run: `git branch -D ai/<name>`
-4. If error, stop and report the error to the user as-is
+    - if error, stop and report the error to the user as-is
+2. Run: `git branch -D ai/<name>`
+    - if error, stop and report the error to the user as-is
 
 ## Error handling
 
