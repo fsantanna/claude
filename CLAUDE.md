@@ -1,6 +1,17 @@
+- Update `CLAUDE.md` when necessary.
+    - global at `~/.claude/CLAUDE.md`
+    - local at `.claude/CLAUDE.md`
+
 - As soon as `claude` starts, it should permanently change the terminal title
   to `"[CC] <current directory>"`.
-- Update `CLAUDE.md` when necessary.
+
+# Persistent Plans
+
+A repository can save persistent plans in `.claude/*`, e.g.:
+
+- `.claude/feature.md`
+
+Plan can be mentioned and should be be updated during sessions.
 
 # Plan Mode Workflow
 
