@@ -1,3 +1,19 @@
+- As soon as `claude` starts, it should permanently change the terminal title
+  to `"[CC] <current directory>"`.
+- Update `CLAUDE.md` when necessary.
+
+# Plan Mode Workflow
+
+- Always enter plan mode before making any file edits.
+- Never edit files without explicit user authorization.
+- Just before edit, you should make one last suggestion.
+- After completing authorized edits, return to plan mode automatically.
+
+# Tests
+
+- Never execute tests.
+- Let me do this step by hand.
+
 # Code Style
 
 - 80-column lines
@@ -10,10 +26,13 @@
 - Ifs:
     - always use else (unless empty), even if the true case returns
     - both paths should be clear with proper indentation
+    - In C:
 
-# Extra
-
-- Never execute tests. Let me do this step by hand.
-- After each instruction, and before editing files, you are allowed to make
-  one-line suggestions.
-- Update `CLAUDE.md` when necessary.
+```c
+if (...) {
+    ...
+    return ...;
+} else {
+    ...     // indent event with return above
+}
+```
