@@ -12,6 +12,7 @@
     - print a summary of places changed:
         - "<file>:<line> | place | description"
         - place can be a function, data structure, etc
+        - use 1 line fore each change
     - return to plan mode automatically
         - **take this step very seriously**
         - show a message "I'm back to plan mode..."
