@@ -17,6 +17,14 @@ reconciles three paradigms:
   - `spawn`, `task`, `tasks` for concurrency
   - hierarchical tags with `:` prefix (e.g., `:Event.Click`)
 
+# Synchronous Languages
+
+Atmos is inspired by synchronous programming languages like Céu and Esterel:
+
+- Languages:    https://fsantanna.github.io/sc.html
+- Céu:          http://www.ceu-lang.org/
+- Esterel:      https://en.wikipedia.org/wiki/Esterel
+
 # Idioms and Caveats:
 
 - Single-line comments:
