@@ -38,8 +38,8 @@ Plan may be mentioned and should be updated during sessions.
 
 # Tests
 
-- Never execute tests.
-- Let me do this step by hand.
+- Never execute tests automatically.
+- Ask me if prefer to do this step by hand.
 
 # Code Style
 
