@@ -7,6 +7,16 @@
 
 - Stay in "Plan Mode". Always. After any edits, go back to "Plan Mode".
 
+- Acknowledgments
+    - after each interaction that results in actions/editions/code, write:
+    - DONE: <what you just did>
+    - NEXT: <a suggestion based on the plan>
+
+- Reminders
+    - I may start a prompt with ",, <text>" (double colon)
+    - this is just a reminder and should be ignored
+    - just repeat with "REMINDER: <text>" as the last prompt response (after ack)
+
 <!--
 - As soon as `claude` starts, it should permanently change the terminal title
   to `"[CC] <current directory>"`.
