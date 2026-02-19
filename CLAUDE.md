@@ -1,58 +1,66 @@
-- Update `CLAUDE.md` when necessary
-    - global at `~/.claude/CLAUDE.md`
-    - local at `.claude/CLAUDE.md`
+# Startup Interview
 
-- Read @remote.md, if running from the Web interface (https://claude.ai/code/)
-    - ignore if running from Claude CLI
+- On startup, conduct an interview before anything else:
+    1. Ask for the **plan name** (`<name>`)
+        - Load or create `.claude/plans/<name>.md`
+        - Each session has exactly **one** plan — do not mix plans
+        - The directory is `plans/` (plural) because other sessions
+          share it
+    2. Ask for the **GitHub issue** (optional)
+        - If provided, link it in the plan file
+    3. Read `@remote.md` if running from the Web interface
+       (https://claude.ai/code/)
+        - Ignore if running from Claude CLI
 
-- Stay in "Plan Mode". Always. After any edits, go back to "Plan Mode".
+# Plan Mode
 
-- Acknowledgments
-    - after each interaction that results in actions/editions/code, write:
-    - DONE: <what you just did>
-    - NEXT: <a suggestion based on the plan>
+- **Always remain in Plan Mode. Never leave it.**
+- **Never act automatically.** Always propose first, wait for
+  explicit user authorization, then execute.
+- Never edit files, run commands, or take any action without
+  user approval.
+- Make suggestions, corrections, and alerts before any edit.
+- After completing authorized edits:
+    - Print a summary of places changed:
+        - `<file>:<line> | place | description`
+        - place can be a function, data structure, etc.
+        - use 1 line for each change
+    - **Immediately return to Plan Mode**
+        - Show a message: "I'm back to plan mode..."
+- Continuously update the plan file with progress and pending
+  items.
 
-- Reminders
-    - I may start a prompt with ",, <text>" (double colon)
-    - this is just a reminder and should be ignored
-    - just repeat with "REMINDER: <text>" as the last prompt response (after ack)
+# Git & PRs
 
-<!--
-- As soon as `claude` starts, it should permanently change the terminal title
-  to `"[CC] <current directory>"`.
--->
+- **Never** commit, push, or create PRs automatically.
+- **Always** ask the user before any git operation.
+- When creating PRs, use the **plan name** in the PR title.
 
-# Persistent Plans
+# Acknowledgments
 
-- Each session has an associated plan `.claude/plan/<name>.md`
-    - On startup, ask for `<name>`
-- The plan must be continuously updated during sessions
-- The plan should keep pending commands/actions that were not applied yet
-
-# Plan Mode Workflow
-
-- Always remain in "Plan Mode".
-- Never edit files without explicit user authorization.
-- Make suggestions/corrections/alerts before edits.
-- After completing authorized edits
-    - print a summary of places changed:
-        - "<file>:<line> | place | description"
-        - place can be a function, data structure, etc
-        - use 1 line fore each change
-    - return to plan mode automatically
-        - show a message "I'm back to plan mode..."
+- After each interaction that results in actions/edits/code,
+  write:
+    - DONE: `<what you just did>`
+    - NEXT: `<a suggestion based on the plan>`
 
 # Language
 
-- **English**: All answers, comments, and any other kind of output should be in
-    English.
-- I may chat and prompt in Portuguese. Nevertheless, the answers must be in
-    English.
+- **English**: All answers, comments, and any other kind of
+  output should be in English.
+- I may chat and prompt in Portuguese. Nevertheless, the answers
+  must be in English.
 
 # Tests
 
 - Never execute tests automatically.
 - Ask me if I prefer to test by hand.
+
+# Reminders
+
+- I may start a prompt with ",, <text>" (double comma)
+- This is just a reminder and should be ignored.
+- Just repeat with "REMINDER: <text>" as the last line of the
+  response (after acknowledgments).
 
 # Code Style
 
@@ -61,10 +69,11 @@
     - 4 spaces
 - Comments:
     - only before blocks or functions, never in between lines
-    - if a line requires comments, create an explicit block for the related
-      lines and comment on top
+    - if a line requires comments, create an explicit block for
+      the related lines and comment on top
 - Ifs:
-    - always use else (unless empty), even if the true case returns
+    - always use else (unless empty), even if the true case
+      returns
     - both paths should be clear with proper indentation
     - In C:
 
