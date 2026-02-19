@@ -1,6 +1,6 @@
-# Startup Interview
+# Startup
 
-- On startup, conduct an interview before anything else:
+- On startup, before doing anything else, collect this info:
     1. Ask for the **plan name** (`<name>`)
         - Load or create `.claude/plans/<name>.md`
         - Each session has exactly **one** plan — do not mix plans
@@ -11,6 +11,15 @@
     3. Read `@remote.md` if running from the Web interface
        (https://claude.ai/code/)
         - Ignore if running from Claude CLI
+    4. Ask for a **description** of what this session is about
+
+# Interview
+
+- After startup, read the repo and the description, then
+  prepare a 5–10 question interview to clarify requirements,
+  constraints, and approach.
+    - Use `AskUserQuestion` to present the questions
+    - The user may request additional questions
 
 # Plan Mode
 
@@ -34,7 +43,12 @@
 
 - **Never** commit, push, or create PRs automatically.
 - **Always** ask the user before any git operation.
-- When creating PRs, use the **plan name** in the PR title.
+- Follow this order, each step requiring explicit approval:
+    1. **Commit** — so the user can review the diff locally
+       or in the web app
+    2. **Push** — only after the user approves the commit
+    3. **PR** — only after the push, use the **plan name**
+       in the PR title
 
 # Acknowledgments
 
