@@ -1,15 +1,16 @@
-{                                                                  
-  "terminalSetTitle": false,
-  "hooks": {                                                       
-    "Stop": [                                                      
-      {                                                            
-        "hooks": [                                                 
-          {                                                        
-            "type": "command",                                     
-            "command": "paplay /x/claude/work.mp3"
-          }                                                        
-        ]                                                          
-      }                                                            
-    ]                                                              
-  }                                                                
-}                                                                  
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "paplay /x/claude/work.wav"
+          }
+        ]
+      }
+    ]
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "terminalSetTitle": false
+}
