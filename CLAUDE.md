@@ -6,6 +6,9 @@
         - Each session has exactly **one** plan — do not mix plans
         - The directory is `plans/` (plural) because other sessions
           share it
+        - If running inside a git worktree, the plan name may be
+          inferred from the worktree directory name — skip the
+          question if the name is unambiguous
     2. Ask for the **GitHub issue** (optional)
         - If provided, link it in the plan file
     3. Read `@remote.md` if running from the Web interface
@@ -49,6 +52,8 @@
     2. **Push** — only after the user approves the commit
     3. **PR** — only after the push, use the **plan name**
        in the PR title
+        - Branch and PR title should follow the format
+          `ai/<plan-name>`, using the worktree name when available
 
 # Acknowledgments
 
