@@ -13,7 +13,7 @@ Parse the arguments: first word is the action (`add`, `rem`, or `pr`), remaining
 1. Run: `git worktree add ../<name> -b ai/<name>`
     - if any error occurs, stop and report the error to the user as-is
 2. Open a new terminal in `../<name>` and run `claude` there:
-   - Run: `i3-sensible-terminal -e "cd $(realpath ../<name>) && claude --dangerously-skip-permissions" &`
+   - Run: `i3-sensible-terminal -e bash -c "cd $(realpath ../<name>) && unset CLAUDECODE && claude --dangerously-skip-permissions" &`
 
 ## For `pr <name> <url>`:
 
@@ -28,7 +28,7 @@ Parse the arguments: first word is the action (`add`, `rem`, or `pr`), remaining
    - Run: `git worktree add ../pr-NN-<name> -b ai/pr-NN-<name> FETCH_HEAD`
     - if any error occurs, stop and report the error to the user as-is
 4. Open a new terminal in `../pr-NN-<name>` and run `claude` there:
-   - Run: `i3-sensible-terminal -e "cd $(realpath ../pr-NN-<name>) && claude --dangerously-skip-permissions" &`
+   - Run: `i3-sensible-terminal -e bash -c "cd $(realpath ../pr-NN-<name>) && unset CLAUDECODE && claude --dangerously-skip-permissions" &`
 
 ## For `rem <name>`:
 
