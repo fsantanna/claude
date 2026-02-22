@@ -10,10 +10,10 @@ Parse the arguments: first word is the action (`add`, `rem`, or `pr`), remaining
 
 ## For `add <name>`:
 
-1. Run: `git worktree add ../<name> -b ai/<name>`
+1. Run: `git worktree add .worktrees/<name> -b ai/<name>`
     - if any error occurs, stop and report the error to the user as-is
-2. Open a new terminal in `../<name>` and run `claude` there:
-   - Run: `i3-sensible-terminal -e bash -c "cd $(realpath ../<name>) && unset CLAUDECODE && claude --dangerously-skip-permissions" &`
+2. Open a new terminal in `.worktrees/<name>` and run `claude` there:
+   - Run: `i3-sensible-terminal -e bash -c "cd $(realpath .worktrees/<name>) && unset CLAUDECODE && claude --dangerously-skip-permissions" &`
 
 ## For `pr <name> <url>`:
 
@@ -25,10 +25,10 @@ Parse the arguments: first word is the action (`add`, `rem`, or `pr`), remaining
    - Run: `git fetch <repo-base-url>.git pull/NN/head`
     - if any error occurs, stop and report the error to the user as-is
 3. Create the worktree from FETCH_HEAD:
-   - Run: `git worktree add ../pr-NN-<name> -b ai/pr-NN-<name> FETCH_HEAD`
+   - Run: `git worktree add .worktrees/pr-NN-<name> -b ai/pr-NN-<name> FETCH_HEAD`
     - if any error occurs, stop and report the error to the user as-is
-4. Open a new terminal in `../pr-NN-<name>` and run `claude` there:
-   - Run: `i3-sensible-terminal -e bash -c "cd $(realpath ../pr-NN-<name>) && unset CLAUDECODE && claude --dangerously-skip-permissions" &`
+4. Open a new terminal in `.worktrees/pr-NN-<name>` and run `claude` there:
+   - Run: `i3-sensible-terminal -e bash -c "cd $(realpath .worktrees/pr-NN-<name>) && unset CLAUDECODE && claude --dangerously-skip-permissions" &`
 
 ## For `rem <name>`:
 
@@ -36,7 +36,7 @@ Parse the arguments: first word is the action (`add`, `rem`, or `pr`), remaining
     - check `$?` result
         - if `0`, ok (branch was merged into main)
         - otherwise, stop and report error to the user
-2. Run: `git worktree remove ../<name>`
+2. Run: `git worktree remove .worktrees/<name>`
     - if error, stop and report the error to the user as-is
 3. Run: `git branch -D ai/<name>`
     - if error, stop and report the error to the user as-is
