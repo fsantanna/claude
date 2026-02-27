@@ -1,28 +1,10 @@
 # Startup
 
-- On startup, before doing anything else, collect this info:
-    1. Ask for the **plan name** (`<name>`)
-        - Load or create `.claude/plans/<name>.md`
-        - Each session has exactly **one** plan — do not mix plans
-        - The directory is `plans/` (plural) because other sessions
-          share it
-        - If running inside a git worktree, the plan name may be
-          inferred from the worktree directory name — skip the
-          question if the name is unambiguous
-    2. Ask for the **GitHub issue** (optional)
-        - If provided, link it in the plan file
-    3. Read `@remote.md` if running from the Web interface
-       (https://claude.ai/code/)
-        - Ignore if running from Claude CLI
-    4. Ask for a **description** of what this session is about
-
-# Interview
-
-- After startup, read the repo and the description, then
-  prepare a 5–10 question interview to clarify requirements,
-  constraints, and approach.
-    - Use `AskUserQuestion` to present the questions
-    - The user may request additional questions
+- Load or create plan with worktree name: `.claude/plans/<name>.md`
+- Make a 5–10 question interview to clarify requirements, constraints, and
+  approach.
+    - Use `AskUserQuestion` to present the questions.
+    - After each iteration, ask if the user wants more questions.
 
 # Plan Mode
 
@@ -38,9 +20,17 @@
         - place can be a function, data structure, etc.
         - use 1 line for each change
     - **Immediately return to Plan Mode**
-        - Show a message: "I'm back to plan mode..."
+        - Show a message: "-=- SWITCH TO PLAN MODE -=-"
 - Continuously update the plan file with progress and pending
   items.
+
+# Acknowledgments
+
+- After each interaction that results in actions/edits/code,
+  write:
+    - DONE: `<what you just did>`
+    - NEXT: `<a suggestion based on the plan>`
+    - -=- SWITCH TO PLAN MODE -=-
 
 # Git & PRs
 
@@ -52,15 +42,7 @@
     2. **Push** — only after the user approves the commit
     3. **PR** — only after the push, use the **plan name**
        in the PR title
-        - Branch and PR title should follow the format
-          `ai/<plan-name>`, using the worktree name when available
-
-# Acknowledgments
-
-- After each interaction that results in actions/edits/code,
-  write:
-    - DONE: `<what you just did>`
-    - NEXT: `<a suggestion based on the plan>`
+        - Branch and PR title should use the plan name
 
 # Language
 
