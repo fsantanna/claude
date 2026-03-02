@@ -66,6 +66,8 @@
 # Code Style
 
 - 80-column lines
+    - **do not break call arguments within this limit**
+        - instead of `f(...,\n...)`, do `f(..., ...)`
 - Indentation:
     - 4 spaces
 - Comments:
