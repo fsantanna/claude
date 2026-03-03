@@ -66,8 +66,9 @@
 # Code Style
 
 - 80-column lines
-    - **do not break call arguments within this limit**
-        - instead of `f(...,\n...)`, do `f(..., ...)`
+    - **do not break params/args if the line fits in 80 cols**
+    - applies to everything: calls, definitions, declarations
+    - only break when the line would exceed 80 columns
 - Indentation:
     - 4 spaces
 - Comments:
