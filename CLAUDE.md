@@ -90,3 +90,11 @@ if (...) {
     ...     // indent even with return above
 }
 ```
+
+# Markdown & Documentation Style
+
+- 80-column lines
+- Phrases must start in a new line
+- Tables
+    - all lines with column separators should match positions
+    - phrases rule does not apply
