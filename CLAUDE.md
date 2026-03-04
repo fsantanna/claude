@@ -1,6 +1,7 @@
 # Startup
 
-- Load or create plan with worktree name: `.claude/plans/<name>.md`
+- Load or create plan with worktree name: `<repo>/.claude/plans/<name>.md`
+    - **confirm full path for plan**
 - Make a 5–10 question interview to clarify requirements, constraints, and
   approach.
     - Use `AskUserQuestion` to present the questions.
