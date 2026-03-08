@@ -1,2 +1,2 @@
 #!/bin/bash
-test -f /tmp/fc-xxx-allow
+test -f /tmp/claude-xxx-allow
