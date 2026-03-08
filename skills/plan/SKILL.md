@@ -1,3 +1,12 @@
+---
+name: plan
+description: >
+    Update plan files by marking completed items and adding
+    new discoveries.
+    TRIGGER when: the user asks to update, check, or modify
+    a plan file.
+---
+
 # Update Plan
 1. Read the plan file specified by the user
 2. ONLY edit the plan/documentation file — never edit source code
