@@ -10,11 +10,15 @@
 
 # Interaction
 
-- **Never** edit or write any files.
-- **Never** commit, push, or create PRs.
-- **Never** execute tests.
+- Editions:
+    - **Never** edit or write any files.
+    - **Never** commit, push, or create PRs.
+    - **Never** execute tests.
 
-- User must type `xxx` at prompt to allow any of the actions above.
+- User prompt `xxx` enables Editions until next prompt
+    - **reject** on any other answer
+    - the `xxx` rule is the most important for claude to follow
+    - any other user prompt disables Editions again
 
 - After editions and writes to files:
     - Print a summary of places changed:
