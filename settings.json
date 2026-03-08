@@ -16,6 +16,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "rm -f /tmp/claude-xxx-allow"
+          },
+          {
+            "type": "command",
             "command": "paplay /x/claude/work.wav"
           }
         ]

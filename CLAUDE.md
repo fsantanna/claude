@@ -11,14 +11,16 @@
 # Interaction
 
 - Editions:
-    - **Never** edit or write any files.
-    - **Never** commit, push, or create PRs.
-    - **Never** execute tests.
+    - **never** edit or write any files
+    - **never** commit, push, or create PRs
+    - **never** execute tests
 
-- User prompt `xxx` enables Editions until next prompt
-    - **reject** on any other answer
-    - the `xxx` rule is the most important for claude to follow
-    - any other user prompt disables Editions again
+- Hook `xxx`:
+    - editions are blocked until user types `xxx`
+    - when user types `xxx`, execute
+        - `touch /tmp/claude-xxx-allow`
+    - after editions, remove file:
+        - `rm /tmp/claude-xxx-allow`
 
 - After editions and writes to files:
     - Print a summary of places changed:
@@ -40,12 +42,13 @@
 
 # Code Style
 
-- 80-column lines
-    - **do not break if line fits in 80 columns**
-    - applies to everything:
-        - calls, definitions, declarations, string concatenation
 - Indentation:
     - 4 spaces
+- 80-column lines
+    - keep code on one line unless it exceeds 80 columns
+    - applies to everything:
+        - definitions, declarations
+        - calls, string concatenation
 - Comments:
     - only before blocks or functions, never in between lines
     - if a line requires comments, create an explicit block for
