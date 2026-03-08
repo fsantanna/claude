@@ -1,49 +1,31 @@
 # Startup
 
-- Load or create plan with worktree name: `<repo|worktree>/.claude/plans/<name>.md`
+- Persistent plan:
+    - ask plan <name> for session:
+    - save in current repository or worktree:
+        - `<repo|worktree>/.claude/plans/<name>.md`
     - **confirm full path for plan**
-- Make a 5–10 question interview to clarify requirements, constraints, and
-  approach.
-    - Use `AskUserQuestion` to present the questions.
-    - After each iteration, ask if the user wants more questions.
 
-# Plan Mode
+- Make questions about the plan.
 
-- **Always remain in Plan Mode. Never leave it.**
-- **Never act automatically.** Always propose first, wait for
-  explicit user authorization, then execute.
-- Never edit files, run commands, or take any action without
-  user approval.
-- Make suggestions, corrections, and alerts before any edit.
-- After completing authorized edits:
+# Interaction
+
+- **Never** edit or write any files.
+- **Never** commit, push, or create PRs.
+- **Never** execute tests.
+
+- User must type `xxx` at prompt to allow any of the actions above.
+
+- After editions and writes to files:
     - Print a summary of places changed:
         - `<file>:<line> | place | description`
         - place can be a function, data structure, etc.
         - use 1 line for each change
-    - **Immediately return to Plan Mode**
-        - Show a message: "-=- SWITCH TO PLAN MODE -=-"
-- Continuously update the plan file with progress and pending
-  items.
+    - Print a 2-line footer:
+        - DONE: `<what you just did>`
+        - NEXT: `<a suggestion based on the plan>`
 
-# Acknowledgments
-
-- After each interaction that results in actions/edits/code,
-  write:
-    - DONE: `<what you just did>`
-    - NEXT: `<a suggestion based on the plan>`
-    - -=- SWITCH TO PLAN MODE -=-
-
-# Git & PRs
-
-- **Never** commit, push, or create PRs automatically.
-- **Always** ask the user before any git operation.
-- Follow this order, each step requiring explicit approval:
-    1. **Commit** — so the user can review the diff locally
-       or in the web app
-    2. **Push** — only after the user approves the commit
-    3. **PR** — only after the push, use the **plan name**
-       in the PR title
-        - Branch and PR title should use the plan name
+- Always update current plan file with progress and pending items
 
 # Language
 
@@ -52,24 +34,12 @@
 - I may chat and prompt in Portuguese. Nevertheless, the answers
   must be in English.
 
-# Tests
-
-- Never execute tests automatically.
-- Ask me if I prefer to test by hand.
-
-# Reminders
-
-- I may start a prompt with ",, <text>" (double comma)
-- This is just a reminder and should be ignored.
-- Just repeat with "REMINDER: <text>" as the last line of the
-  response (after acknowledgments).
-
 # Code Style
 
 - 80-column lines
-    - **do not break params/args if the line fits in 80 cols**
-    - applies to everything: calls, definitions, declarations
-    - only break when the line would exceed 80 columns
+    - **do not break if line fits in 80 columns**
+    - applies to everything:
+        - calls, definitions, declarations, string concatenation
 - Indentation:
     - 4 spaces
 - Comments:
