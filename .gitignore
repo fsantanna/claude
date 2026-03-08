@@ -1,1 +1,25 @@
-.*.swp
+# Auto-generated / runtime
+.credentials.json
+history.jsonl
+file-history/
+stats-cache.json
+cache/
+paste-cache/
+mcp-needs-auth-cache.json
+backups/
+debug/
+telemetry/
+usage-data/
+projects/
+session-env/
+shell-snapshots/
+plans/
+todos/
+tasks/
+plugins/
+downloads/
+statsig/
+commands/
+*.swp
+*.swo
+settings.local.json
