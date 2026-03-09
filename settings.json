@@ -1,31 +1,41 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/chico/.claude/hooks/xxx-gate.sh"
-          }
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "Edit|Write|NotebookEdit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "test -f /tmp/claude-xxx-allow || { echo 'Blocked: type xxx to allow edits' >&2; exit 2; }"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "rm -f /tmp/claude-xxx-allow"
+                    },
+                    {
+                        "type": "command",
+                        "command": "paplay /x/claude/work.wav"
+                    }
+                ]
+            }
+        ],
+        "UserPromptSubmit": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "if echo \"$CLAUDE_USER_PROMPT\" | grep -qx 'xxx'; then touch /tmp/claude-xxx-allow; fi"
+                    }
+                ]
+            }
         ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "rm -f /tmp/claude-xxx-allow"
-          },
-          {
-            "type": "command",
-            "command": "paplay /x/claude/work.wav"
-          }
-        ]
-      }
-    ]
-  },
-  "skipDangerousModePermissionPrompt": true,
-  "terminalSetTitle": false
+    },
+    "skipDangerousModePermissionPrompt": true,
+    "terminalSetTitle": false
 }

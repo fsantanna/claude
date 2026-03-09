@@ -44,8 +44,7 @@
 
 - Indentation:
     - 4 spaces
-- 80-column lines
-    - keep code on one line unless it exceeds 80 columns
+- Do not break lines
     - applies to everything:
         - definitions, declarations
         - calls, string concatenation
