@@ -17,10 +17,9 @@
 
 - Hook `xxx`:
     - editions are blocked until user types `xxx`
-    - when user types `xxx`, execute
+    - ask user to type `xxx`, then execute
         - `touch /tmp/claude-xxx-allow`
-    - after editions, remove file:
-        - `rm /tmp/claude-xxx-allow`
+        - **never** touch it by yourself
 
 - After editions and writes to files:
     - Print a summary of places changed:
