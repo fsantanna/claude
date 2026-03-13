@@ -15,18 +15,20 @@
     - **never** commit, push, or create PRs
     - **never** execute tests
 
-- Hook `xxx`:
-    - editions are blocked until user types `xxx`
-    - ask user to type `xxx`, then execute
-        - `touch /tmp/claude-xxx-allow`
-        - **never** touch it by yourself
+- Before editions:
+    - editions are hard locked
+    - when locked
+        - print absolute current plan filename
+        - print summary of files you will modify:
+            - `<file> | place | description`
+            - place can be a function, data structure, etc.
 
-- After editions and writes to files:
-    - Print a summary of places changed:
-        - `<file>:<line> | place | description`
-        - place can be a function, data structure, etc.
+- After editions:
+    - print absolute current plan filename
+    - print summary of files you modified:
+        - `<file> | place | description`
         - use 1 line for each change
-    - Print a 2-line footer:
+    - print a 2-line footer:
         - DONE: `<what you just did>`
         - NEXT: `<a suggestion based on the plan>`
 

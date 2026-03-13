@@ -2,11 +2,11 @@
     "hooks": {
         "PreToolUse": [
             {
-                "matcher": "Edit|Write|NotebookEdit",
+                "matcher": "Write|Edit|Bash|NotebookEdit",
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "test -f /tmp/claude-xxx-allow || { echo 'Blocked: type xxx to allow edits' >&2; exit 2; }"
+                        "command": "test ! -f .claude.lock || { echo '-=- edits are blocked -=-' >&2; exit 2; }"
                     }
                 ]
             }
@@ -16,21 +16,11 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "rm -f /tmp/claude-xxx-allow"
+                        "command": "touch .claude.lock"
                     },
                     {
                         "type": "command",
                         "command": "paplay /x/claude/work.wav"
-                    }
-                ]
-            }
-        ],
-        "UserPromptSubmit": [
-            {
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "if echo \"$CLAUDE_USER_PROMPT\" | grep -qx 'xxx'; then touch /tmp/claude-xxx-allow; fi"
                     }
                 ]
             }
