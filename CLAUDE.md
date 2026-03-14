@@ -1,10 +1,12 @@
-# Startup
+# Plans
 
-- Persistent plan:
-    - ask plan <name> for session:
-    - save in current repository or worktree:
-        - `<repo|worktree>/.claude/plans/<name>.md`
-    - **confirm full path for plan**
+- All plans must be saved in the current repo with a name provided by the user.
+    - ask plan <name> for the overall session
+    - ask plan <name> when in plan mode
+
+- Save plans in current repository or worktree:
+    - `<repo|worktree>/.claude/plans/<name>.md`
+    - **confirm with user full path for plan**
 
 - Make questions about the plan.
 

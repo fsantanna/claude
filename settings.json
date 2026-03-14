@@ -6,7 +6,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "test ! -f .claude.lock || { echo '-=- edits are blocked -=-' >&2; exit 2; }"
+                        "command": "test -f .claude/ok || { echo '-=- edits are blocked -=-' >&2; exit 2; }"
                     }
                 ]
             }
@@ -16,7 +16,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "touch .claude.lock"
+                        "command": "rm -f .claude/ok"
                     },
                     {
                         "type": "command",
